@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -57,6 +58,7 @@ public class MyIndicatorView extends FrameLayout implements OnPageChangeListener
 			tv.setGravity(Gravity.CENTER);
 			ll_title.addView(tv);
 			tv.setLayoutParams(new LinearLayout.LayoutParams(0,LinearLayout.LayoutParams.MATCH_PARENT,1));
+			tv.setOnClickListener(new MyOnclickListener(i));
 		}
 		mViewPager.setOnPageChangeListener(this);
 	}
@@ -78,6 +80,18 @@ public class MyIndicatorView extends FrameLayout implements OnPageChangeListener
 	public void onPageSelected(int arg0) {
 	}
 	
-	
+	private class MyOnclickListener implements OnClickListener{
+		private int position;
+		public MyOnclickListener(int position){
+			this.position = position;
+		}
+		@Override
+		public void onClick(View v) {
+			if(mViewPager!=null){
+				mViewPager.setCurrentItem(position);
+			}
+		}
+		
+	}
 
 }
