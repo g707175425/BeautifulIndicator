@@ -1,4 +1,4 @@
-#BeautifulIndicator
+# BeautifulIndicator
 
 	漂亮的viewpagerIndicator
 
